@@ -41,7 +41,7 @@ const guessFunc = (selectedColor) => {
     if (selectedColor === targetColor) {
         score++;
         scoreEle.textContent = score;
-        gameStatus.textContent = 'Correct Guess!';
+        gameStatus.textContent = 'Correct Guess! 🎉';
         gameStatus.style.color = 'green';
         colorBox.classList.add('celebrate');
         setTimeout(() => {
@@ -56,6 +56,11 @@ const guessFunc = (selectedColor) => {
 }
 
 newGameBtn.addEventListener('click', () => {
+    let currentScore = score;
+    let highScore = 0;
+    const highScoreEle = document.getElementById('high-score');
+    if (currentScore > highScore)  highScoreEle.textContent = currentScore;
+
     score = 0
     scoreEle.textContent = score;
     initGame();
